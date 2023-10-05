@@ -9,5 +9,6 @@ jobs:
         with:
           repository: chain-builds/source-code-frontend        
       - run: |
+          ls -la
           npm install
           npm test
