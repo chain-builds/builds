@@ -4,6 +4,13 @@ on:
     types: [dependency_updated]
 
 jobs:
+  who-triggered-me:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Who triggered me?
+        run: echo "I was triggered by ${{ github.event_name }}"
+        
+
   build_frontend:
     runs-on: ubuntu-22.04
     defaults:
