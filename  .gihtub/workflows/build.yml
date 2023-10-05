@@ -1,0 +1,12 @@
+on:
+  workflow_dispatch
+
+jobs:
+  build_frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        repository: chain-builds/source-code-frontend        
+      - run: |
+          npm install
+          npm test
