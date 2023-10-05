@@ -49,3 +49,8 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: my-dotnet-app
+          path: application
+      - run: |
+          pushd application
+          echo "Deploying application"
+          ls -la
