@@ -8,8 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Who triggered me?
-        run: echo "I was triggered by ${{ github.event_name }}"
-        
+        run: |
+          echo "### This pipile trigger summary" >> $GITHUB_STEP_SUMMARY
+          echo "I was triggered by ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
+            echo "Payload: ${{ github.event.client_payload.triggered_by }}" >> $GITHUB_STEP_SUMMARY
+          elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "Manual trigger" >> $GITHUB_STEP_SUMMARY
+          fi
+
 
   build_frontend:
     runs-on: ubuntu-22.04
