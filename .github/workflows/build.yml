@@ -6,7 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        repository: chain-builds/source-code-frontend        
+        with:
+          repository: chain-builds/source-code-frontend        
       - run: |
           npm install
           npm test
