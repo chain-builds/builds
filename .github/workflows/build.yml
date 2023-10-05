@@ -1,5 +1,7 @@
 on:
-  workflow_dispatch
+  workflow_dispatch:
+  repository_dispatch:
+    types: [dependency_updated]
 
 jobs:
   build_frontend:
