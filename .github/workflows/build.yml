@@ -12,3 +12,16 @@ jobs:
           pushd my-nodejs-app
           npm install
           npm test
+  
+  build_backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: chain-builds/source-code-backend
+      - run: dotnet build src/my-dotnet-app.csproj
+      - run: dotnet pack src/my-dotnet-app.csproj --output output
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-dotnet-app
+          path: output
