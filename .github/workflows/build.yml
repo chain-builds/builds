@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Who triggered me?
         run: |
-          echo "### This pipile trigger summary" >> $GITHUB_STEP_SUMMARY
+          echo "### This pipeline trigger summary 🚀" >> $GITHUB_STEP_SUMMARY
           echo "I was triggered by ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
           if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
             echo "Payload: ${{ github.event.client_payload.triggered_by }}" >> $GITHUB_STEP_SUMMARY
