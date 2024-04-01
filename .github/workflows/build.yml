@@ -12,7 +12,11 @@ jobs:
           echo "### This pipeline trigger summary 🚀" >> $GITHUB_STEP_SUMMARY
           echo "I was triggered by ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
           if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
-            echo "Payload: ${{ github.event.client_payload.triggered_by }}" >> $GITHUB_STEP_SUMMARY
+            echo "Triggered: ${{ github.event.client_payload.triggered_by }}" >> $GITHUB_STEP_SUMMARY
+            echo "`repository_dispatch` payload:" >> $GITHUB_STEP_SUMMARY
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            echo '${{ github.event.client_payload }}' | jq . >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
           elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             echo "Manual trigger" >> $GITHUB_STEP_SUMMARY
           fi
