@@ -45,6 +45,9 @@ jobs:
         with:
           name: my-dotnet-app
           path: my-dotnet-app/output/*.nupkg 
+
+  build_microservie:
+    uses: chain-builds/micro-service/.github/workflows/build.yml@main
             
   test_backend:
     runs-on: ubuntu-22.04
