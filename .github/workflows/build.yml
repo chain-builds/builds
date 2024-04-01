@@ -15,7 +15,7 @@ jobs:
             echo "Triggered: ${{ github.event.client_payload.triggered_by }}" >> $GITHUB_STEP_SUMMARY
             echo '`repository_dispatch` payload:' >> $GITHUB_STEP_SUMMARY
             echo '```json' >> $GITHUB_STEP_SUMMARY
-            echo '${{ github.event.client_payload }}' | jq . >> $GITHUB_STEP_SUMMARY
+            echo '${{ toJson(github.event.client_payload) }}' | jq . >> $GITHUB_STEP_SUMMARY
             echo '```' >> $GITHUB_STEP_SUMMARY
           elif [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             echo "Manual trigger" >> $GITHUB_STEP_SUMMARY
