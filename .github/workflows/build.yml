@@ -1,3 +1,4 @@
+name: Common Build Workflow
 on:
   workflow_dispatch:
   repository_dispatch:
