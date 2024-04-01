@@ -46,7 +46,7 @@ jobs:
           name: my-dotnet-app
           path: my-dotnet-app/output/*.nupkg 
 
-  build_microservie:
+  build_microservice:
     uses: chain-builds/micro-service/.github/workflows/build.yml@main
             
   test_backend:
@@ -63,7 +63,7 @@ jobs:
       
   deploy-all:
     runs-on: ubuntu-latest
-    needs: [build_frontend, test_backend]
+    needs: [build_frontend, test_backend, build_microservice]
     steps:
       - uses: actions/download-artifact@v3
         with:
