@@ -1,0 +1,4 @@
+*.yml linguist-detectable
+*.yaml linguist-detectable
+# GitHub.com unvendor
+.github/** -linguist-vendored
